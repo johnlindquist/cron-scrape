@@ -33,6 +33,6 @@ let uploadResponse = await octokit.rest.repos.uploadReleaseAsset({
   data: Buffer.from(JSON.stringify(results)),
 })
 
-console.log({ uploadResponse: uploadResponse.data }})
+console.log({ uploadResponse: uploadResponse.data })
 
 console.log(`url: ${uploadResponse.data.browser_download_url}`)
