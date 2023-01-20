@@ -12,7 +12,7 @@ console.log({ octokit })
 
 let { format } = await npm("date-fns")
 let dateTag = format(new Date(), "yyyy-MM-dd-HH-mm")
-let { host } = new URL(url)
+let { host } = newURL(url)
 
 let name = `${host}-${dateTag}.json`
 
