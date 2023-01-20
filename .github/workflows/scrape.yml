@@ -20,6 +20,6 @@ jobs:
       - name: Scrape ESPN
         uses: johnlindquist/kit-action@main
         with:
-          script: scrape espn.com h2
+          script: scrape https://espn.com h2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
