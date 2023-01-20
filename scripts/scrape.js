@@ -26,7 +26,7 @@ let releaseResponse = await octokit.rest.repos.createRelease({
 console.log({ releaseResponse: releaseResponse.data })
 
 let uploadResponse = await octokit.rest.repos.uploadReleaseAsset({
-  headers,
+  headers: "application/json",
   ...github.context.repo,
   release_id: releaseResponse.data.id,
   name,
