@@ -1,0 +1,19 @@
+name: Scrape
+
+on:
+  schedule:
+    - cron: "*/5 * * * *" # Every 5 minutes
+  workflow_dispatch:
+    branches:
+      - main
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Scrape ESPN
+        uses: johnlindquist/kit-action@main
+        with:
+          script: scrape espn.com h2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
