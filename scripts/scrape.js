@@ -23,6 +23,8 @@ let releaseResponse = await octokit.rest.repos.createRelease({
   tag_name: name,
 })
 
+console.log({ releaseResponse: releaseResponse.data })
+
 let uploadResponse = await octokit.rest.repos.uploadReleaseAsset({
   headers,
   ...github.context.repo,
@@ -30,5 +32,7 @@ let uploadResponse = await octokit.rest.repos.uploadReleaseAsset({
   name,
   data: Buffer.from(JSON.stringify(results)),
 })
+
+console.log({ uploadResponse: uploadResponse.data }})
 
 console.log(`url: ${uploadResponse.data.browser_download_url}`)
