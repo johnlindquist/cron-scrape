@@ -18,7 +18,7 @@ let releaseResponse = await octokit.rest.repos.createRelease({
 })
 
 let headers = {
-  "content-type": "image/png",
+  "content-type": "application/json",
 }
 
 let uploadResponse = await octokit.rest.repos.uploadReleaseAsset({
