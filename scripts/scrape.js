@@ -3,8 +3,12 @@ let selector = await arg("Enter selector")
 
 let data = await scrapeSelector(url, selector)
 
+console.log({ data })
+
 // Rest of this script is for uploading the data to GitHub releases
 let octokit = github.getOctokit(await env("GITHUB_TOKEN"))
+
+console.log({ octokit })
 
 let { format } = await npm("date-fns")
 let dateTag = format(new Date(), "yyyy-MM-dd-HH-mm")
