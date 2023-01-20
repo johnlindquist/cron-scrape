@@ -12,6 +12,8 @@ console.log({ octokit })
 
 let { format } = await npm("date-fns")
 let dateTag = format(new Date(), "yyyy-MM-dd-HH-mm")
+let { host } = new URL(url)
+
 let name = `${host}-${dateTag}.json`
 
 console.log({ name })
@@ -20,8 +22,6 @@ let releaseResponse = await octokit.rest.repos.createRelease({
   ...github.context.repo,
   tag_name: name,
 })
-
-let { host } = new URL(url)
 
 let uploadResponse = await octokit.rest.repos.uploadReleaseAsset({
   headers,
