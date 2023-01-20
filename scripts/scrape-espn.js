@@ -1,5 +1,10 @@
-let url = await arg("Enter url")
-let selector = await arg("Enter selector")
+// Note: You can extract variables into the yml file
+// let url = await arg("Enter URL")
+// would allow the following line in the yml
+// script: scrape-espn https://espn.com
+
+let url = `https://espn.com`
+let selector = `[data-mptype='headline']`
 
 let results = await scrapeSelector(url, selector)
 
