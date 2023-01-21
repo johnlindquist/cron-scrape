@@ -4,7 +4,7 @@
 // script: scrape-espn https://espn.com
 
 let url = `https://espn.com`
-let selector = `[data-mptype="headline"]`
+let selector = `[data-mptype=headline]`
 
 let results = await scrapeSelector(url, selector, el => el.innerText, {
   timeout: 60000,
