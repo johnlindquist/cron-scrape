@@ -2,7 +2,7 @@ name: Scrape
 
 on:
   schedule:
-    - cron: "* */6 * * *" # Every 6 hours
+    - cron: "0 14 * * *" # Every day at 2pm
   workflow_dispatch:
     branches:
       - main
