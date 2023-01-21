@@ -3,12 +3,22 @@
 // would allow the following line in the yml
 // script: scrape-espn https://espn.com
 
-let url = `https://espn.com`
-let selector = `[data-mptype=headline]`
+let url = `https://www.espn.com/nba/lines`
+let selector = `.Table__TBODY`
+let xf = el => {
+  let [home, away] = Array.from(el.querySelectorAll("[data-clubhouse-uid]")).map(e => e.innerText)
 
-let results = await scrapeSelector(url, selector, el => el.innerText, {
-  timeout: 60000,
-})
+  let [homeLine, awayLine] = Array.from(el.querySelectorAll("td:nth-child(3)")).map(e => e.innerText)
+
+  return {
+    home,
+    homeLine,
+    away,
+    awayLine,
+  }
+}
+
+let results = await scrapeSelector(url, selector, xf)
 
 // Rest of this script is for uploading the data to GitHub releases
 let octokit = github.getOctokit(await env("GITHUB_TOKEN"))
