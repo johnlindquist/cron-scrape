@@ -6,8 +6,8 @@
 let url = `https://espn.com`
 let selector = `[data-mptype="headline"]`
 
-let results = await scrapeSelector(url, selector, {
-  timeout: 60000,
+let results = await scrapeSelector(url, selector, el => el.innerText, {
+  timeout: 10000,
 })
 
 // Rest of this script is for uploading the data to GitHub releases
