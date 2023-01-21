@@ -6,7 +6,9 @@
 let url = `https://espn.com`
 let selector = `[data-mptype="headline"]`
 
-let results = await scrapeSelector(url, selector)
+let results = await scrapeSelector(url, selector, {
+  timeout: 60000,
+})
 
 // Rest of this script is for uploading the data to GitHub releases
 let octokit = github.getOctokit(await env("GITHUB_TOKEN"))
